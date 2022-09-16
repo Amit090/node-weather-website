@@ -11,7 +11,7 @@ const request = require('postman-request')
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewsPath = path.join(__dirname,'../templates/views')
 const partialsPath = path.join('__dirname','../templates/partials')
-
+const port = process.env.PORT || 3000
 app.use(express.static(publicDirectoryPath))
 
 app.set('view engine','hbs')
@@ -88,6 +88,6 @@ app.get('/weather',(req, res) => {
 app.get(('*'),(req, res) => {
     res.send('404 Not Found')
 })
-app.listen(3000,() => {
-    console.log('server is running on port 3000')
+app.listen(port,() => {
+    console.log('server is running on port' + port)
 })
